@@ -51,21 +51,25 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/btnGoogleLogin"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@drawable/googleicon"
                 android:padding="8dp"
-
-                android:contentDescription="fb"/>
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Google Login"/>
 
             <ImageView
+                android:id="@+id/btnFacebookLogin"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="16dp"
                 android:background="@drawable/ic_facebookicon"
                 android:padding="8dp"
-
-                android:contentDescription="gg"/>
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Facebook Login"/>
         </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout

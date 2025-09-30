@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -14,10 +15,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField("String", "MONGODB_URI", "\"mongodb://deprecated\"")
-        buildConfigField("String", "MONGODB_DB", "\"deprecated\"")
-        buildConfigField("String", "API_BASE_URL", "\"http://10.0.2.2:4000\"")
+        buildConfigField("String", "API_BASE_URL", "\"http://10.0.2.2:8080\"")
     }
 
     buildTypes {
@@ -57,9 +55,16 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-    // Thêm dòng này để import thư viện MongoDB Java Driver (exclude record codec to avoid desugaring issues)
-    implementation("org.mongodb:mongodb-driver-sync:5.1.2") {
-        exclude(group = "org.mongodb", module = "bson-record-codec")
-    }
     coreLibraryDesugaring(libs.desugar)
+
+    // Firebase BOM - manages all Firebase library versions
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+
+    // Google Sign-In
+    implementation(libs.play.services.auth)
+
+    // Facebook SDK
+    implementation(libs.facebook.android.sdk)
 }
