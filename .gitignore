@@ -1,69 +1,69 @@
-# OS/IDE
-.DS_Store
-Thumbs.db
-*.log
-*.tmp
-*.swp
-.idea/
-.vscode/
-
-# Gradle/Build outputs
+# Gradle cache + build outputs
 .gradle/
 build/
-out/
-**/build/
-**/out/
+*/build/
 
-# Android
-app/build/
-app/captures/
-app/release/
-app/debug/
-app/profile/
-app/local.properties
+# Android Studio/IDE
+.idea/
+*.iml
 
-# Signing & secrets
-**/*.jks
-**/*.keystore
-**/keystore.properties
-**/signing.properties
-
-# Spring/Maven (server module)
-server/target/
-server/.env
-server/.env.*
-server/src/main/resources/application-local.properties
-server/src/main/resources/application-local.yml
-server/src/main/resources/application-local.yaml
-
-# Server build outputs
-server/build/
-
-# Local toolchains in this folder
-jdk-21.0.8/
-
-# Misc env files
-*.env
-*.env.*
-
+# Machine-local config
 local.properties
 
-# Secrets and env (added)
-server/src/main/resources/application.properties
-server/src/main/resources/application-*.properties
-server/src/main/resources/application-*.yml
-server/src/main/resources/application-*.yaml
-server/.env
-server/.env.*
-*.env
-*.env.*
+# Local JDK bundled in repo (không nên commit)
+jdk-*/
 
-# Key stores and signing
-**/*.jks
-**/*.keystore
-**/keystore.properties
-**/signing.properties
+# Keystore & secrets
+*.jks
+*.keystore
+**/keystore/**
+**/google-services.json
+*.pem
+*.p12
+*.keystores
 
-# Local config
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc editors
+.vscode/
+*.swp
+*.swo# Gradle cache + build outputs
+.gradle/
+build/
+*/build/
+
+# Android Studio/IDE
+.idea/
+*.iml
+
+# Machine-local config
 local.properties
-app/local.properties
+
+# Local JDK bundled in repo (không nên commit)
+jdk-*/
+
+# Keystore & secrets
+*.jks
+*.keystore
+**/keystore/**
+**/google-services.json
+*.pem
+*.p12
+*.keystores
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc editors
+.vscode/
+*.swp
+*.swo

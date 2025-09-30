@@ -9,6 +9,10 @@ activity = "1.10.1"
 constraintlayout = "2.2.1"
 lifecycle = "2.8.6"
 desugar = "2.0.4"
+firebase = "33.7.0"
+googleServices = "4.4.2"
+playServicesAuth = "21.3.0"
+facebook = "17.0.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -23,6 +27,18 @@ lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata"
 lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime", version.ref = "lifecycle" }
 desugar = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugar" }
 
+# Firebase
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore" }
+
+# Google Sign-In
+play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServicesAuth" }
+
+# Facebook SDK
+facebook-android-sdk = { group = "com.facebook.android", name = "facebook-android-sdk", version.ref = "facebook" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 
