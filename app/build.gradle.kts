@@ -3,6 +3,14 @@ plugins {
     alias(libs.plugins.google.services)
 }
 
+import java.util.Properties
+
+// Load local secrets from secrets.properties (ignored by Git)
+val secretsProps = Properties().apply {
+    val f = rootProject.file("secrets.properties")
+    if (f.exists()) f.inputStream().use { load(it) }
+}
+
 android {
     namespace = "com.example.giasuaovanhocc3"
     compileSdk = 36
@@ -16,6 +24,13 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "API_BASE_URL", "\"http://10.0.2.2:8080\"")
+        // Inject sensitive IDs via BuildConfig/manifest placeholders
+        buildConfigField("String", "GOOGLE_WEB_CLIENT_ID", "\"${secretsProps.getProperty("GOOGLE_WEB_CLIENT_ID", "")}\"")
+        manifestPlaceholders["facebookAppId"] = secretsProps.getProperty("FACEBOOK_APP_ID", "")
+        manifestPlaceholders["facebookClientToken"] = secretsProps.getProperty("FACEBOOK_CLIENT_TOKEN", "")
+        // Derive fb login scheme from app id (e.g., fb123456789)
+        val fbAppId = secretsProps.getProperty("FACEBOOK_APP_ID", "")
+        manifestPlaceholders["facebookScheme"] = if (fbAppId.isNotEmpty()) "fb$fbAppId" else ""
     }
 
     buildTypes {

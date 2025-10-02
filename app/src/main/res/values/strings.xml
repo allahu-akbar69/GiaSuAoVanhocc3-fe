@@ -12,8 +12,5 @@
     <string name="go_login">Log in</string>
     <string name="go_signup">Sign up</string>
     
-    <!-- Facebook Login -->
-    <string name="facebook_app_id">1882090222369858</string>
-    <string name="fb_login_protocol_scheme">fb1882090222369858</string>
-    <string name="facebook_client_token">bec483f6d90c2b7b17c5d4174de43663</string>
+    <!-- Facebook Login (ids and scheme now injected via manifest placeholders) -->
 </resources>

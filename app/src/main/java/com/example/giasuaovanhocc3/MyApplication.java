@@ -10,7 +10,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         // Initialize Facebook SDK before any LoginManager usage
-        FacebookSdk.setClientToken(getString(R.string.facebook_client_token));
+        // ClientToken now provided via manifest placeholder
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
     }

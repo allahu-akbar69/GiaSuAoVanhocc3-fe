@@ -7,6 +7,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.giasuaovanhocc3.network.ApiClient;
+import com.example.giasuaovanhocc3.BuildConfig;
+import android.util.Log;
 import com.example.giasuaovanhocc3.network.SessionManager;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -55,11 +57,18 @@ public class FirebaseAuthHelper {
     }
     
     private void setupGoogleSignIn() {
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("112688423925-62v1or9da3lmnkb71f9vos3s5vlqcu95.apps.googleusercontent.com") // Replace with your actual web client ID
-                .requestEmail()
-                .build();
-        
+        GoogleSignInOptions.Builder builder = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail();
+
+        String clientId = BuildConfig.GOOGLE_WEB_CLIENT_ID;
+        if (clientId != null && !clientId.isEmpty()) {
+            builder.requestIdToken(clientId);
+        } else {
+            Log.w(TAG, "GOOGLE_WEB CLIENT ID is empty. Skipping requestIdToken; Google Sign-In may not work.");
+            Toast.makeText(context, "Missing Google Web Client ID. Configure secrets.properties.", Toast.LENGTH_SHORT).show();
+        }
+
+        GoogleSignInOptions gso = builder.build();
         mGoogleSignInClient = GoogleSignIn.getClient(context, gso);
     }
     

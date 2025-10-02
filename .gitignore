@@ -1,69 +1,67 @@
-# Gradle cache + build outputs
+# Gradle cache & build outputs
 .gradle/
 build/
 */build/
+.cxx/
+.externalNativeBuild/
 
-# Android Studio/IDE
+# Android build artifacts
+*.apk
+*.ap_
+*.aab
+captures/
+
+# IDE
 .idea/
 *.iml
 
 # Machine-local config
 local.properties
 
-# Local JDK bundled in repo (không nên commit)
+# Local JDK (không nên commit)
 jdk-*/
 
-# Keystore & secrets
+# Keystore & secrets (GIỮ RIÊNG, KHÔNG COMMIT)
 *.jks
 *.keystore
+*.keystores
 **/keystore/**
-**/google-services.json
+signing.properties
 *.pem
 *.p12
-*.keystores
+*.key
+
+# Firebase/Google services (GIỮ RIÊNG, KHÔNG COMMIT)
+**/google-services.json
+# Nếu dùng iOS tương ứng (đề phòng)
+**/GoogleService-Info.plist
 
 # Logs
 *.log
 
-# OS files
+# OS junk
 .DS_Store
 Thumbs.db
 
-# Misc editors
-.vscode/
-*.swp
-*.swo# Gradle cache + build outputs
-.gradle/
-build/
-*/build/
-
-# Android Studio/IDE
-.idea/
-*.iml
-
-# Machine-local config
-local.properties
-
-# Local JDK bundled in repo (không nên commit)
-jdk-*/
-
-# Keystore & secrets
-*.jks
-*.keystore
-**/keystore/**
-**/google-services.json
-*.pem
-*.p12
-*.keystores
-
-# Logs
-*.log
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Misc editors
+# Editors
 .vscode/
 *.swp
 *.swo
+
+# Env files (nếu dùng)
+.env
+.env.*
+
+# Local secrets (KHÔNG COMMIT)
+secrets.properties
+
+# Crashlytics/Fabric legacy (nếu dùng)
+**/fabric.properties
+**/crashlytics-build.properties
+
+# Heap dumps & merge leftovers
+*.hprof
+*.orig
+*.rej
+
+
